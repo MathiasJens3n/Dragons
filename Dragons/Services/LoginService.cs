@@ -6,7 +6,7 @@ namespace Dragons.Services
 {
     public static class LoginService
     {
-        public static bool ValidateLogin(User user, IUserRepository userRepository)
+        public static User ValidateLogin(User user, IUserRepository userRepository)
         {
             try
             {
@@ -14,14 +14,14 @@ namespace Dragons.Services
 
                 if (authendicatedUser != null)
                 {
-                    return true;
+                    return authendicatedUser;
                 }
-                return false;
+                return null;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                return false;
+                return null;
             }
         }
     }

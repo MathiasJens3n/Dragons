@@ -7,5 +7,7 @@ namespace Dragons.Interfaces
         public Task<bool> AddUser(User user);
 
         public List<User> GetAllUsers();
+
+        public User Getuser(string name, string password);
     }
 }

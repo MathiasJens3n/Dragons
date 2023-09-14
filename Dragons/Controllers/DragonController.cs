@@ -38,5 +38,13 @@ namespace Dragons.Controllers
         {
             return Ok(playlist);
         }
+
+        [Authorize(Roles = "writer")]
+        [HttpPost("dragetunes/addsong")]
+        public async Task<IActionResult> AddToPlaylist()
+        {
+            return Ok("Test");
+        }
+
     }
 }

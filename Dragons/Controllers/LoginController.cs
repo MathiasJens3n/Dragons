@@ -32,11 +32,11 @@ namespace Dragons.Controllers
         [HttpPost]
         public ActionResult Login([FromBody] User user)
         {
-            var userAuthendicated = LoginService.ValidateLogin(user, _userRepository);
+            var authendicatedUser = LoginService.ValidateLogin(user, _userRepository);
 
-            if (userAuthendicated)
+            if (authendicatedUser != null)
             {
-                var token = _tokenService.GenerateJwtToken(user);
+                var token = _tokenService.GenerateJwtToken(authendicatedUser);
                 return Ok(new { Token = token });
             }
 
